@@ -16,7 +16,7 @@ alias -- -="cd -"
 
 # Shortcuts
 alias reload!='. ~/.zshrc'
-alias restart-network="sudo /etc/init.d/networking restart"
+alias network-reload="sudo /etc/init.d/networking restart"
 
 # PS
 alias psa="ps aux"
