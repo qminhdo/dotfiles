@@ -1,0 +1,102 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filename: .vimrc                                                           "
+"                                                                            "
+" Sections:                                                                  "
+"   01. General ................. General Vim behavior                       "
+"   02. Events .................. General autocmd events                     "
+"   03. Theme/Colors ............ Colors, fonts, etc.                        "
+"   04. Vim UI .................. User interface behavior                    "
+"   05. Text Formatting/Layout .. Text, tab, indentation related             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 01. General                                                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set history=1000          " Store lots of :cmdline history
+set showmode              " Show current mode down the bottom
+set visualbell            " No sounds
+set autoread              " Reload files changed outside vim
+
+
+" Change leader to a comma because the backslash is too far away
+" That means all \x commands turn into ,x
+" The mapleader has to be set before vundle starts loading all 
+" the plugins.
+"let mapleader=","
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 02. Events                                                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" In Ruby files, use 2 space instead of 4 for tabs
+autocmd FileType ruby setlocal sw=2 ts=2 sts=2
+
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 03. Theme/Colors                                                           "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable             " enable syntax highlighting (previously syntax on).
+colorscheme molokai       " set colorscheme
+
+
+" Highlight characters that go over 80 columns
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
+
+
+" Highlight characters that go over 80 columns (by drawing a border on the 81st)
+if exists('+colorcolumn')
+  set colorcolumn=81
+  highlight ColorColumn ctermbg=red
+else
+  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.\+/
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 04. Vim UI                                                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number                " show line numbers
+set laststatus=2          " last window always has a statusline
+" set cul                   " highlight current line
+set nohlsearch            " Don't continue to highlight searched phrases.
+set hlsearch              " Highlight searches
+set incsearch             " But do highlight as you type your search.
+set ignorecase            " Make searches case-insensitive.
+set ruler                 " Always show info along bottom.
+set showmatch             " Highlight matching parenthesis.
+set showcmd               " Show the (partial) command as it's being typed
+" set title                 " Show the filename in the window titlebar
+set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
+set relativenumber
+
+"Use relative line numbers
+"if exists("&relativenumber")
+"  set relativenumber
+"  au BufReadPost * set relativenumber
+"endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 05. Text Formatting/Layout                                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autoindent            " auto-indent
+set smarttab              " use tabs at the start of a line, spaces elsewhere
+set smartindent           " auto insert one extra level of indentation
+set tabstop=2             " tab spacing
+set softtabstop=2         " unify
+set shiftwidth=2          " indent/outdent by 2 columns
+set shiftround            " always indent/outdent to the nearest tabstop
+set expandtab             " use spaces instead of tabs
+
+set backspace=indent,eol,start " Allow backspace in insert mode
+
+set linebreak             " wrap lines at convenient points
+set nowrap                " don't wrap text
+
+"filetype plugin on
+"filetype indent on
+
