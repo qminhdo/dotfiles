@@ -15,6 +15,9 @@ fi
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 
+# exclude oh-my-zsh zsh files
+config_files=(${config_files:#*oh-my-zsh.symlink/**/*.zsh})
+
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
