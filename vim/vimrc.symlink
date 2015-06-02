@@ -72,7 +72,7 @@ set showmatch             " Highlight matching parenthesis.
 set showcmd               " Show the (partial) command as it's being typed
 " set title                 " Show the filename in the window titlebar
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
-set relativenumber
+" set relativenumber
 
 "Use relative line numbers
 "if exists("&relativenumber")
