@@ -40,7 +40,7 @@ set sidescroll=1
 " 03. Theme/Colors                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable             " enable syntax highlighting (previously syntax on).
-colorscheme molokai       " set colorscheme
+colorscheme ir_black       " set colorscheme
 
 
 " Highlight characters that go over 80 columns

@@ -52,16 +52,16 @@
 
 	# Remove branches that have already been merged with master
 	# dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-	
+
 	# Unstage a file
 	# unstage = reset HEAD --
-	
+
 	# log last commit
 	# last = log -1 HEAD
 	#######################################
 
 	# branch
-  b = branch -v                     # branch (verbose)
+  br = branch -v                     # branch (verbose)
 
   # commit
   c = commit                        # commit with message
@@ -182,5 +182,6 @@
 [core]
   editor = vim
 	autocrlf = input
+
 [push]
 	default = simple
